@@ -83,3 +83,8 @@ def delete_car(id: int, db: Session = Depends(get_db)):
     db.delete(db_car)
     db.commit()
     return {"message": "Car deleted successfully"}
+
+
+@app.get("/health")
+def health():
+    return {"status": "healthy"}
