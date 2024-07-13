@@ -4,9 +4,10 @@ from typing import Optional, List
 from sqlalchemy import create_engine, Column, Integer, String, Float, Boolean, ARRAY
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, Session
+import os 
 
 # Database setup
-SQLALCHEMY_DATABASE_URL = "postgresql://twitter_clone_6ecg_user:acuzMrWei7et4n9Oqi0UjIYiaza51Izg@dpg-cq8ng0t6l47c73d1859g-a.oregon-postgres.render.com/twitter_clone_6ecg"
+SQLALCHEMY_DATABASE_URL = os.environ.get("DATABASE_URL")
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
